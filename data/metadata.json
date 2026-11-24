@@ -1,0 +1,1 @@
+{"source":"https://info.cec.gov.tw/vote2026/static","checkedOn":"2026-11-24","regions":22,"files":487,"failures":["/json/cand/V1/10018/10018010.json: curl: (22) The requested URL returned error: 404\n","/json/cand/V1/10018/10018030.json: curl: (22) The requested URL returned error: 404\n","/json/cand/V1/10018/10018020.json: curl: (22) The requested URL returned error: 404\n"]}

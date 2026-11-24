@@ -1,0 +1,193 @@
+/* One persistent, flat ticket and one continuous camera movement. */
+.entry-world {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 200%;
+  transform: translateY(0);
+  transition: transform 1.7s cubic-bezier(.45,.03,.2,1);
+  pointer-events: none;
+  will-change: transform;
+}
+.camera-inside .entry-world { transform: translateY(-50%); }
+.cover { background: transparent; }
+.cover-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: 50%;
+  transform: none;
+  transition: none;
+}
+.cover-art { display: block; width: 100%; height: 100%; }
+.hero-ticket-plane {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+  will-change: transform;
+}
+.hero-ticket-plane.falling { animation: ticket-fall 1.02s both; }
+@keyframes ticket-fall {
+  0% { transform: translate(0,0) rotate(0); }
+  9% { transform: translate(-2px,-2px) rotate(-.35deg); }
+  18% { transform: translate(2px,1px) rotate(.35deg); }
+  27% { transform: translate(-1px,-1px) rotate(-.15deg); }
+  34% { transform: translate(0,0) rotate(0); animation-timing-function: cubic-bezier(.5,.02,.9,.55); }
+  100% { transform: translate(0,145%) rotate(0); }
+}
+.entry-world .interior {
+  top: 50%;
+  bottom: auto;
+  height: 50%;
+  opacity: 1;
+  transition: none;
+  background: #101010;
+}
+.entry-world .interior-top { background: linear-gradient(#000,#101010); }
+.entry-world .interior-left { background: linear-gradient(90deg,#0a0a0a,#141414); }
+.entry-world .interior-right { background: linear-gradient(90deg,#141414,#080808); }
+.selection-content { transform: translate(-50%,-50%); }
+.selection h1 { margin: 0 0 42px; font-size: clamp(27px,3vw,42px); }
+#selection:not(.active) { transition: none; }
+#desk.dealing.active { transition: none; }
+
+/* The papers arrive individually, then the whole stack moves right. */
+.ballot-rack {
+  transition: right 1.05s var(--ease), top 1.05s var(--ease), transform 1.05s var(--ease);
+}
+.desk.dealing .ballot-rack {
+  right: 50%;
+  top: 50%;
+  transform: translate(50%,-46%) rotate(-7deg) scale(1.24);
+}
+.desk.dealing .rack-ballot {
+  animation: deal-paper .55s var(--ease) both;
+  animation-delay: calc(var(--i) * 170ms);
+  pointer-events: none;
+}
+.desk.settling .rack-ballot { pointer-events: none; }
+@keyframes deal-paper {
+  from { opacity: 0; transform: translate(-38px,30px) rotate(-5deg); }
+  to { opacity: 1; transform: translateX(calc(var(--i)*8px)); }
+}
+.paper-actions { min-height: 48px; margin-top: 16px; }
+#finish-ballot { font-size: 1.3rem; padding: 9px 0 9px 20px; letter-spacing: .12em; }
+#undo { font-size: .875rem; }
+
+/* Flat, quiet objects: a narrow handle, a circular base, a disc of red ink. */
+.tools { gap: 35px; }
+.stamp-rest { height: 118px; }
+.stamp-object {
+  width: 72px;
+  height: 100px;
+  transform: rotate(-8deg);
+  filter: none;
+}
+.stamp-object > span { display: none; }
+.stamp-object::before {
+  content: '';
+  position: absolute;
+  left: 29px;
+  top: 4px;
+  width: 14px;
+  height: 65px;
+  border: 1px solid #d2c9bc;
+  border-radius: 9px;
+  background: #a69b8b;
+}
+.stamp-object::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 64px;
+  width: 52px;
+  height: 18px;
+  border: 1px solid #d2c9bc;
+  border-bottom: 3px solid #9a2425;
+  border-radius: 50%;
+  background: #a69b8b;
+}
+.stamp-rest:hover .stamp-object { transform: translateY(-5px) rotate(-8deg); }
+.stamp-rest.picked .stamp-object { opacity: .12; }
+.tool-label, .inkpad-lid { display: none; }
+.inkpad { height: 86px; width: 100px; }
+.inkpad-base {
+  width: 69px;
+  height: 69px;
+  top: 0;
+  left: 15px;
+  transform: none;
+  background: none;
+  border: 1px solid #8a7b72;
+  box-shadow: none;
+  border-radius: 50%;
+}
+.ink-surface {
+  inset: 6px;
+  background: #92282a;
+  box-shadow: none;
+}
+.cursor-stamp { filter: none; }
+.cursor-stamp .stamp-object { transform: rotate(-8deg) scale(.75); }
+.cursor-stamp.pressing .stamp-object { transform: translateY(9px) rotate(-8deg) scale(.7); }
+
+.referendum-paper { min-width: 390px; max-width: 720px; }
+.referendum-title { text-align: center; width: 100%; }
+.referendum-question {
+  max-width: 530px;
+  margin: 7px auto 28px;
+  padding: 0 12px;
+  font-size: 1rem;
+  line-height: 2;
+  letter-spacing: .05em;
+}
+.referendum-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #35342b;
+}
+.referendum-table > div + div { border-left: 1px solid #35342b; }
+.referendum-mark { height: 110px; border-bottom: 1px solid #35342b; }
+.referendum-choice { font-size: 1.55rem; text-align: center; letter-spacing: .35em; padding: 22px 5px; }
+
+/* Historical turnout and attributed pre-lock polls. */
+.results-content { margin: 24vh auto 10vh; }
+.data-panels { border: 0; padding-top: 35px; gap: 65px; }
+.turnout-value { font-size: clamp(50px,6vw,80px); letter-spacing: -.055em; margin: 20px 0 14px; white-space: nowrap; }
+.turnout-value small { font-size: 1rem; margin-left: 5px; }
+.data-source { display: inline-block; font-size: .75rem; color: #b5ab9e; margin-top: 14px; letter-spacing: .1em; }
+.poll-row { position: relative; display: flex; justify-content: space-between; gap: 20px; padding: 20px 0 12px; font-size: 1.2rem; }
+.poll-row small { font-size: .75rem; margin-left: 3px; }
+.poll-row i { position: absolute; height: 1px; bottom: 0; left: 0; width: var(--support); background: var(--orange); }
+#poll-meta { white-space: pre-line; margin-top: 17px; font-size: .75rem; }
+.poll-empty { padding: 25px 0; }
+.result-links { justify-content: flex-end; margin-top: 40px; }
+.results .continue-button { border: 0; }
+
+@media(max-width:800px) {
+  .selection h1 { margin-bottom: 34px; }
+  .desk.dealing .ballot-rack { top: 45%; transform: translate(50%,-46%) rotate(-7deg) scale(.94); }
+  #finish-ballot { font-size: 1.15rem; }
+  .paper-stage { top: 42%; }
+  .paper-actions { margin-top: 10px; }
+  .tools { gap: 45px; bottom: 8vh; }
+  .stamp-rest { height: 100px; width: 75px; }
+  .stamp-rest .stamp-object { top: 0; transform: rotate(-8deg) scale(.7); }
+  .stamp-rest:hover .stamp-object { transform: translateY(-5px) rotate(-8deg) scale(.7); }
+  .inkpad { width: 82px; height: 70px; }
+  .inkpad-base { scale: .8; transform-origin: center; left: 4px; }
+  .referendum-paper { min-width: 310px; }
+  .referendum-question { font-size: .875rem; margin-bottom: 22px; padding: 0; }
+  .referendum-mark { height: 94px; }
+  .referendum-choice { font-size: 1.2rem; }
+  .results-content { margin-top: 21vh; }
+  .data-panels { gap: 30px; }
+  .turnout-value { font-size: 3rem; }
+  .poll-row { font-size: .95rem; gap: 8px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .entry-world { transition-duration: .01ms; }
+  .hero-ticket-plane.falling, .desk.dealing .rack-ballot { animation-duration: .01ms; animation-delay: 0ms; }
+}

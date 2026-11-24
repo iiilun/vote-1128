@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#191919">
+  <meta name="description" content="抽出選票，拿起圈選章。11/28，記得投票。以本屆中選會公開候選名單製作的投票練習。">
+  <title>11/28 · 投下一次</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23ff5c1b' d='M14 5h36v54H14z'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="assets/cover.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="experience.css">
+</head>
+<body data-stage="cover">
+  <main id="app">
+    <div class="entry-world" id="entry-world" aria-hidden="true">
+      <div class="cover-scene">
+        <svg class="cover-art" viewBox="0 0 3776 2667" preserveAspectRatio="none">
+          <defs><clipPath id="ticket-shape"><polygon points="1517,1759 1753,1253 2298,1506 2176,1759"/></clipPath></defs>
+          <rect width="3776" height="2667" fill="#191919"/>
+          <g class="hero-ticket-plane" id="cover-ticket"><image href="assets/cover.jpg" width="3776" height="2667" clip-path="url(#ticket-shape)"/></g>
+          <rect y="1759" width="3776" height="908" fill="#000"/>
+        </svg>
+      </div>
+      <div class="interior"><div class="interior-top"></div><div class="interior-left"></div><div class="interior-right"></div><div class="interior-floor"></div></div>
+    </div>
+    <section class="screen cover active" id="cover" aria-label="11月28日模擬投票">
+      <button class="cover-enter" id="enter"><span>模擬投票</span><i></i></button>
+    </section>
+
+    <section class="screen selection" id="selection" aria-labelledby="selection-title" inert>
+      <div class="selection-content">
+        <h1 id="selection-title">你的選區在？</h1>
+        <form id="district-form">
+          <div class="select-line"><label for="city">縣市</label><div class="select-wrap"><select id="city" required><option value="">選擇縣市</option></select></div></div>
+          <div class="select-line dormant" id="district-line"><label for="district">鄉鎮市區</label><div class="select-wrap"><select id="district" required disabled><option value="">選擇鄉鎮市區</option></select></div></div>
+          <div class="select-line dormant" id="village-line"><label for="village">村里</label><div class="select-wrap"><select id="village" required disabled><option value="">選擇村里</option></select></div></div>
+          <div class="select-line dormant" id="voter-line"><label for="voter">選舉人別</label><div class="select-wrap"><select id="voter"><option value="01">一般選舉人</option><option value="03">平地原住民</option><option value="02">山地原住民</option></select></div></div>
+          <div id="extra-areas"></div>
+          <button class="continue-button" id="get-ballots" disabled type="submit">領取選票 <span class="small-circle"></span></button>
+        </form>
+        <p class="quiet-message" id="selection-status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="screen desk" id="desk" aria-label="圈選選票" inert>
+      <div class="desk-label sr-only"><h1 id="desk-title">抽出你的選票</h1><span id="progress-count"></span><span id="place-name"></span><span id="desk-note"></span></div>
+      <div class="desk-light" aria-hidden="true"></div>
+      <div class="ballot-rack" id="ballot-rack" aria-label="待完成的選票"></div>
+      <div class="paper-stage" id="paper-stage" hidden>
+        <div class="paper-scroll" id="paper-scroll" tabindex="0" aria-label="選票，可左右捲動">
+          <div class="ballot-paper" id="ballot-paper" tabindex="0" aria-label="可自由蓋章的模擬選票"></div>
+        </div>
+        <div class="paper-actions"><button id="undo" aria-label="收回上一個印記">撤銷</button><span class="sr-only" id="paper-hint" role="status"></span><button id="finish-ballot">完成這張</button></div>
+      </div>
+      <div class="tools" id="tools" hidden>
+        <button class="stamp-rest" id="stamp" aria-label="拿起圈選章" aria-pressed="false"><span class="stamp-object"><span class="stamp-knob"></span><span class="stamp-neck"></span><span class="stamp-foot"></span><span class="stamp-rubber"></span></span><span class="tool-label">圈選章</span></button>
+        <button class="inkpad" id="inkpad" aria-label="沾取印泥"><span class="inkpad-lid"></span><span class="inkpad-base"><span class="ink-surface"></span></span><span class="tool-label">印泥</span></button>
+      </div>
+      <button class="deposit-ready" id="deposit-ready" hidden>投入票箱 <span class="small-circle"></span></button>
+    </section>
+
+    <section class="screen deposit" id="deposit" aria-label="投入選票箱" inert>
+      <header class="minimal-header"><button class="wordmark" data-home>11/28</button><span id="deposit-place"></span></header>
+      <h1>讓你的選擇落下</h1>
+      <div class="deposit-scene"><div class="folded-stack" id="folded-stack"></div><button class="ballot-box" id="ballot-box" aria-label="將全部選票投入票箱"><span class="box-top"></span><span class="box-slot"></span><span class="box-front"><span>11/28</span></span></button></div>
+      <button class="drop-button" id="drop">投下這一票 <span class="small-circle"></span></button>
+      <p class="deposit-hint">也可以把選票拖進票箱</p>
+    </section>
+
+    <section class="screen results" id="results" aria-label="投票率與封關前民調" inert>
+      <div class="results-content"><span class="eyebrow" id="results-place"></span>
+        <div class="data-panels"><div class="data-item"><span>2022 上屆投票率</span><div class="turnout-value"><span id="turnout-value">—</span><small>%</small></div><p id="turnout-state">縣市長選舉</p><a class="data-source" id="turnout-source" target="_blank" rel="noopener noreferrer">中選會</a></div><div class="data-item poll-panel"><span>封關前民調</span><div id="poll-values"></div><p id="poll-meta"></p><a class="data-source" id="poll-source" target="_blank" rel="noopener noreferrer"></a></div></div>
+        <div class="result-links"><button data-open-info>資料來源</button></div>
+        <button class="continue-button" id="see-reminder">記住這一天 <span class="small-circle"></span></button>
+      </div>
+    </section>
+
+    <section class="screen reminder" id="reminder" aria-labelledby="reminder-title" inert>
+      <header class="minimal-header"><button class="wordmark" data-home>11/28</button><span>記得回來投票</span></header>
+      <div class="reminder-content"><span class="eyebrow">2026 · 星期六</span><h1 id="reminder-title">11/28</h1><p class="voting-time">08:00 — 16:00</p><div class="bring-list"><div><svg viewBox="0 0 70 54" fill="none" aria-hidden="true"><rect x="2" y="8" width="66" height="42" rx="3"/><circle cx="20" cy="24" r="6"/><path d="M10 41c0-13 20-13 20 0M39 22h19M39 30h14M39 38h19"/></svg><span>身分證</span></div><div><svg viewBox="0 0 70 54" fill="none" aria-hidden="true"><path d="M26 10c0-11 18-11 18 0l-4 16 11 7v11H19V33l11-7zM15 49h40"/></svg><span>印章</span></div><div><svg viewBox="0 0 70 54" fill="none" aria-hidden="true"><path d="M12 2h46v50H12zM21 14h27M21 22h27M21 30h27M21 38h15"/></svg><span>投票通知單</span></div></div><button class="return-home" id="return-home">回到最初 <span class="small-circle"></span></button></div>
+    </section>
+    <div class="cursor-stamp" id="cursor-stamp" hidden aria-hidden="true"><span class="stamp-object"><span class="stamp-knob"></span><span class="stamp-neck"></span><span class="stamp-foot"></span><span class="stamp-rubber"></span></span></div>
+    <div class="transition-shade" id="transition-shade" aria-hidden="true"></div>
+  </main>
+
+  <dialog id="info-dialog"><form method="dialog"><button class="dialog-close" aria-label="關閉資料說明">×</button></form><span class="eyebrow">關於練習</span><h2>把第一次，留在這裡。</h2><p>這是一個獨立的投票模擬。你的圈選只存在於這次畫面，回到首頁即清除，不統計支持度。</p><dl><dt>候選名單</dt><dd>中選會 115 年地方公職人員選舉公開資料，2026/11/24 查核。依縣市、鄉鎮市區、村里與選舉人別產生選票，並加入全國性第22案公投練習票。部分村里名單缺漏的票種會標示「待補」，只開放已確認票種練習。<a href="https://info.cec.gov.tw/vote2026/" target="_blank" rel="noopener noreferrer">查看中選會資料</a></dd><dt>選票式樣</dt><dd>參考本屆選舉公報的圈選欄、號次、照片、姓名與推薦政黨欄。此為互動重製，顏色、比例與部分照片不等同實際選票。正式投票請使用投票所的圈選工具。<a href="https://eebulletin.cec.gov.tw/" target="_blank" rel="noopener noreferrer">查看正式選舉公報</a></dd><dt>投票率與民調</dt><dd>投票率引用中選會2022年縣市長選舉的全縣市統計，並非本屆投票率或所選村里的投票率。民調顯示已核對的封關前公開調查快照，來源、調查期間、樣本與方法可由結果頁查看；未收錄地區不補造數值，未列入調查的候選人也不視為0%。<a href="https://info.cec.gov.tw/vote2026/" target="_blank" rel="noopener noreferrer">查看選舉資訊</a></dd></dl><p class="info-date">11/28 · 身分證、印章、投票通知單</p></dialog>
+  <div class="sr-only" id="announcer" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

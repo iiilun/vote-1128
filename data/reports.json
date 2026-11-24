@@ -1,0 +1,249 @@
+{
+  "checkedOn": "2026-11-24",
+  "turnoutYear": 2022,
+  "turnoutScope": "直轄市、縣市長選舉；全縣市",
+  "turnoutSource": "https://web.cec.gov.tw/api/file/ce228705-c738-450c-9be9-761e3cdd94ca.pdf#page=19",
+  "turnoutSourceTable": "表1-4，2022年直轄市、縣（市）長選舉人數、投票數與投票率",
+  "turnout2022": {
+    "63000": {
+      "rate": 67.7
+    },
+    "65000": {
+      "rate": 56.6
+    },
+    "68000": {
+      "rate": 59.46
+    },
+    "66000": {
+      "rate": 60.01
+    },
+    "67000": {
+      "rate": 58.68
+    },
+    "64000": {
+      "rate": 58.61
+    },
+    "10002": {
+      "rate": 64.28
+    },
+    "10004": {
+      "rate": 58.98
+    },
+    "10005": {
+      "rate": 67.2
+    },
+    "10007": {
+      "rate": 64.9
+    },
+    "10008": {
+      "rate": 69.08
+    },
+    "10009": {
+      "rate": 67.35
+    },
+    "10010": {
+      "rate": 67.32
+    },
+    "10013": {
+      "rate": 67.18
+    },
+    "10014": {
+      "rate": 64.79
+    },
+    "10015": {
+      "rate": 57.56
+    },
+    "10016": {
+      "rate": 58.51
+    },
+    "09007": {
+      "rate": 72.99
+    },
+    "09020": {
+      "rate": 39.32
+    },
+    "10017": {
+      "rate": 60.16
+    },
+    "10018": {
+      "rate": 62.94
+    },
+    "10020": {
+      "rate": 43.99
+    }
+  },
+  "pollSelection": "各地封關前可核對的末次公開調查快照；不使用AI得票率預測替代民調。未收錄地區不補造數值。候選人依正式號次排序。",
+  "polls": {
+    "63000": {
+      "agency": "TVBS民調中心",
+      "published": "2026/11/16",
+      "fieldwork": "11/14–11/15",
+      "values": {
+        "蔣萬安": 46,
+        "沈伯洋": 44
+      },
+      "undecided": 10,
+      "sample": 1331,
+      "population": "20歲以上臺北市民；支持度為有投票意願者",
+      "method": "市話與手機雙底冊人員電話訪問",
+      "marginOfError": "95%信賴水準，±2.7個百分點",
+      "funding": "TVBS",
+      "source": "https://news.tvbs.com.tw/politics/4051318"
+    },
+    "65000": {
+      "agency": "TVBS民調中心",
+      "published": "2026/11/17",
+      "fieldwork": "11/15–11/16",
+      "values": {
+        "李四川": 42.4,
+        "蘇巧慧": 43
+      },
+      "undecided": 13.6,
+      "sample": 1327,
+      "population": "20歲以上新北市民；支持度為有投票意願者",
+      "method": "市話與手機雙底冊人員電話訪問",
+      "marginOfError": "95%信賴水準，±2.7個百分點",
+      "funding": "TVBS",
+      "source": "https://news.tvbs.com.tw/politics/4051820"
+    },
+    "68000": {
+      "agency": "信民協會／畢肯",
+      "published": "2026/11/10",
+      "fieldwork": "11/04–11/06",
+      "values": {
+        "張善政": 36.9,
+        "黃世杰": 32.8
+      },
+      "sample": 1074,
+      "population": "設籍桃園市年滿20歲民眾",
+      "method": "住宅電話與行動電話雙架構抽樣；戴立安設計分析",
+      "marginOfError": "95%信賴水準，±3.0個百分點",
+      "funding": "信民協會",
+      "source": "https://newtalk.tw/news/view/2026-11-10/1070229"
+    },
+    "66000": {
+      "agency": "世新大學民調中心",
+      "published": "2026/11/09",
+      "fieldwork": "11/05–11/07",
+      "values": {
+        "何欣純": 30.0,
+        "江啟臣": 39.2,
+        "洪麗華": 1.3
+      },
+      "sample": 1068,
+      "population": "設籍臺中市年滿20歲選民",
+      "method": "電話號碼簿末兩碼隨機抽樣；性別、年齡、學歷、行政區加權",
+      "marginOfError": "95%信賴水準，±3.0個百分點",
+      "commissioner": "臺中市議會國民黨團",
+      "source": "https://news.ttv.com.tw/news/11511090001500W"
+    },
+    "67000": {
+      "agency": "新台灣國策智庫",
+      "published": "2026/10/21",
+      "fieldwork": "10/13–10/15",
+      "values": {
+        "陳亭妃": 59.4,
+        "謝龍介": 22.6
+      },
+      "undecided": 17,
+      "method": "市話分層隨機抽樣；依性別、年齡、教育程度與行政區加權",
+      "source": "https://news.tvbs.com.tw/politics/4051705"
+    },
+    "64000": {
+      "agency": "ETtoday民調雲",
+      "published": "2026/11/17",
+      "fieldwork": "11/10–11/13",
+      "values": {
+        "柯志恩": 46.1,
+        "賴瑞隆": 44.6
+      },
+      "undecided": 7.7,
+      "sample": 1296,
+      "population": "設籍高雄市年滿20歲之民調雲會員",
+      "method": "簡訊及電子郵件邀請之封閉式網路問卷；分層比例抽樣",
+      "marginOfError": "發布單位列95%信賴水準±2.72個百分點",
+      "funding": "東森民調雲股份有限公司",
+      "source": "https://m3.news.ebc.net.tw/news/politics/581086"
+    },
+    "10017": {
+      "agency": "思傳媒／畢肯",
+      "published": "2026/11/13",
+      "fieldwork": "11/09–11/11",
+      "values": {
+        "謝國樑": 35.1,
+        "童子瑋": 38.4,
+        "魏造文": 2.0
+      },
+      "sample": 1073,
+      "method": "住宅電話與行動電話雙架構電腦輔助電話訪問",
+      "population": "設籍基隆市年滿20歲民眾",
+      "marginOfError": "95%信賴水準，±3.0個百分點",
+      "funding": "思傳媒",
+      "source": "https://metismedia.com.tw/article/89-0"
+    },
+    "10007": {
+      "agency": "聯合報系民調中心",
+      "published": "2026/10/19",
+      "fieldwork": "10/13–10/15",
+      "values": {
+        "魏平政": 16.0,
+        "陳素月": 32.0,
+        "邱建富": 10.0,
+        "陳重嘉": 0.3
+      },
+      "undecided": 42,
+      "method": "電話調查",
+      "source": "https://udn.com/news/story/124652/9822866"
+    },
+    "10014": {
+      "agency": "大地民意研究",
+      "published": "2026/11/11",
+      "fieldwork": "11/06–11/08",
+      "values": {
+        "吳秀華": 35.7,
+        "陳瑩": 31.1
+      },
+      "sample": 1067,
+      "population": "設籍臺東縣年滿20歲民眾",
+      "method": "依行政區母體比例抽樣之市話訪問；性別、年齡、教育及行政區加權",
+      "marginOfError": "95%信賴水準，±3.0個百分點",
+      "funding": "陳瑩競選總部",
+      "source": "https://newtalk.tw/news/view/2026-11-11/1070504"
+    },
+    "10002": {
+      "agency": "台灣研究學會／趨勢民調",
+      "published": "2026/11/17",
+      "fieldwork": "11/11–11/13",
+      "values": {
+        "林國漳": 38.7,
+        "吳宗憲": 37.7
+      },
+      "sample": 1068,
+      "method": "市話號碼簿分層比例抽樣，末兩碼隨機",
+      "population": "設籍宜蘭縣年滿20歲民眾",
+      "marginOfError": "95%信賴水準，±3.0個百分點",
+      "source": "https://www.travelnews.tw/news/林國漳吳宗憲民調差1％　宜蘭選戰五五波最後10天/"
+    },
+    "10015": {
+      "agency": "風傳媒民調",
+      "published": "2026/11/15",
+      "fieldwork": "11/12–11/14",
+      "values": {
+        "游淑貞": 30.5,
+        "魏嘉賢": 13.6,
+        "張峻": 19.1
+      },
+      "sample": 1068,
+      "population": "設籍花蓮縣13鄉鎮市年滿20歲民眾",
+      "method": "住宅電話號碼簿分層隨機抽樣，末兩碼隨機",
+      "marginOfError": "95%信賴水準，±3.0個百分點",
+      "source": "https://www.hsnews.com.tw/political-news/zui-xin-feng-chuan-mei-min-diao-gong-bu-hua-lian-xian-zhang-xuan-qing-you-shu-zhen-zhen30-5-zhi-chi-du-ling-xian.html"
+    }
+  },
+  "referendum": {
+    "number": 22,
+    "question": "你是否支持政府使用「核電」振興經濟，以廢除「非核家園」的能源政策？",
+    "source": "https://info.cec.gov.tw/vote2026/static/file/ebook/index.html",
+    "eligibility": "全國性公投投票權人須年滿18歲，並符合戶籍居住等法定資格；此模擬為每組地區選票加入一張公投練習票。"
+  }
+}
